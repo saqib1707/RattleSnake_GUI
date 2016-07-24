@@ -1,0 +1,74 @@
+[
+    {
+        "batch": 1, 
+        "name": "amrin haider", 
+        "phoneno": "3198", 
+        "marks": "100"
+    }, 
+    {
+        "batch": 1, 
+        "name": "zaid imam", 
+        "phoneno": "8320", 
+        "marks": "00"
+    }, 
+    {
+        "batch": 1, 
+        "name": "osaid imam", 
+        "phoneno": "7201", 
+        "marks": 90
+    }, 
+    {
+        "batch": 1, 
+        "name": "dishani dey", 
+        "phoneno": "9247", 
+        "marks": 90
+    }, 
+    {
+        "batch": 2, 
+        "name": "naushin ghazala", 
+        "phoneno": "7236", 
+        "marks": "78"
+    }, 
+    {
+        "batch": 2, 
+        "name": "samrin haider", 
+        "phoneno": "3159", 
+        "marks": 82
+    }, 
+    {
+        "batch": 2, 
+        "name": "kashish", 
+        "phoneno": "4270", 
+        "marks": 78
+    }, 
+    {
+        "batch": 2, 
+        "name": "shadab azim", 
+        "phoneno": "3601", 
+        "marks": 67
+    }, 
+    {
+        "batch": 3, 
+        "name": "dilkash ghazala", 
+        "phoneno": "7202", 
+        "marks": 65
+    }, 
+    {
+        "batch": 3, 
+        "name": "sayan akhtar", 
+        "phoneno": "8730", 
+        "marks": "20"
+    }, 
+    {
+        "batch": 3, 
+        "name": "naurin haider", 
+        "phoneno": "7290", 
+        "marks": 45
+    }, 
+    {
+        "batch": 3, 
+        "name": "Kanush Agrawal", 
+        "phoneno": "9800", 
+        "marks": 0
+    }
+]
