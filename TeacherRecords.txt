@@ -26,5 +26,12 @@
         "password": "1707", 
         "batch": 4, 
         "name": "Saqib Azim"
+    },
+    {
+        "username": "pranav", 
+        "is_Marks_Updated": "None", 
+        "password": "sankhe", 
+        "batch": 4, 
+        "name": "Pranav Sankhe"
     }
 ]
