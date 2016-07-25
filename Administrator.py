@@ -169,10 +169,6 @@ class ShowListAndModify:
                 next_btn=Button(main.frame,text='Next>>',command=self.getName,activebackground='grey',activeforeground='#AB78F1',bg='#58F0AB',highlightcolor='red',padx='10px',pady='3px')
                 next_btn.place(relx=0.4,rely=0.5)
 
-
-
-
-
 class Administrator:
 	def __init__(self):
 		print " "
@@ -246,9 +242,6 @@ class CoachingTemp:
         back_btn=Button(main.frame,text='Back',command=main.back,activebackground='grey',activeforeground='#AB78F1',bg='#58F0AB',highlightcolor='red',padx='10px',pady='3px')
         back_btn.place(relx=0.45,rely=0.35)
 
-
-
-
 class AdminInterface:
 	def __init__(self):
 		self.frame=Tk()
@@ -272,7 +265,6 @@ class AdminInterface:
 		batchAllotment_btn=Button(self.frame,text='Batch Allotment',command=admin_obj.reMapping,activebackground='grey',activeforeground='#AB78F1',bg='#58F0AB',highlightcolor='red',padx='10px',pady='3px')
 		batchAllotment_btn.place(relx=0.65,rely=0.2)
 		Button(main.frame,text='Exit',command=self.exit,activebackground='grey',activeforeground='#AB78F1',bg='#58F0AB',highlightcolor='red',padx='10px',pady='3px').place(relx=0.45,rely=0.35)
-
 
 main=AdminInterface()
 main.back()
