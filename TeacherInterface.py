@@ -36,7 +36,6 @@ class Login:
 				count+=1
 				if count>=11:
 					widget.destroy()
-
 	def modifyMarks(self):
 		self.is_Modified=False
 		if self.checkBatchEmpty(self.batch)==True:
