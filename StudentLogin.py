@@ -56,7 +56,6 @@ class Login:
 class SignUp:
 	def __init__(self):
 		print
-	
 	def getSignUp(self):
 		username = self.username_entry.get()
 		pwd = self.password_entry.get()
