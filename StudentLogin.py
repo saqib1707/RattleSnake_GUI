@@ -2,10 +2,10 @@ import json
 import os
 from Tkinter import *
 import tkMessageBox
-#to check whether the StudentRecords file is completely empty or not
 
+#-----------check for empty database-------------------------
 def checkFileEmpty():
-        if os.stat("/home/saqib1707/Desktop/Extra_RattleSnake_copy/StudentRecords.txt").st_size  ==  0:
+        if os.stat("/home/saqib1707/Desktop/RattleSnake_GUI/StudentRecords.txt").st_size  ==  0:
             tkMessageBox.showinfo('Warning','Empty File!!!Please add members to perform these operations')
             return True
         else:
@@ -20,11 +20,11 @@ class Login:
 
 	def login(self):
 		found = False
-		if checkFileEmpty() == True:              #----------checks whether the file is empty or not--------------
+		#----------checks whether the file is empty or not--------------
+		if checkFileEmpty() == True:              
 			return
-		print "Hello Saqib"
 		destroyInterface(main.frame)
-		main.frame.title('Student Portal -Login Interface')
+		main.frame.title('Student Portal --Login Interface')
 		usernamelabel  =  Label(main.frame,text = "User Name",bg = '#58F0AB',padx = '10px',pady = '3px').place(x = 50,y = 60)
 		self.usernameentry1 = Entry(main.frame,width = 25)
 		self.usernameentry1.place(x = 145,y = 60)
@@ -33,6 +33,7 @@ class Login:
 		self.passwordentry1.place(x = 415,y = 60)
 		Button(main.frame,text = "Login",command = self.getLogin,activebackground = 'grey',activeforeground = '#AB78F1',cursor = 'arrow',bg = '#58F0AB',highlightcolor = 'red',padx = '10px',pady = '3px').place(x = 250,y = 120)
 		Button(main.frame,text= "Back",command=main.back,activebackground = 'grey',activeforeground = '#AB78F1',cursor = 'arrow',bg = '#58F0AB',highlightcolor = 'red',padx = '10px',pady = '3px').place(x = 250,y = 160)
+	
 	def getLogin(self):
 		found = False
 		username = self.usernameentry1.get()
@@ -41,7 +42,7 @@ class Login:
 			jsonData = json.load(readFile)
 	        for i in range(len(jsonData)):
 	        	if jsonData[i]['username'] == username and jsonData[i]['password'] == pwd:
-	        		#show his username,marks,rank and current batch
+	        		#-----------------show his username,marks,rank and current batch-----------------------#
 	        		found = True
 	        		msg = 'Name:'+str(jsonData[i]['name'])+'\nMarks:'+str(jsonData[i]['marks'])+'\nCurrent Batch:'+str(jsonData[i]['batch'])
 	        		msg_widget = Message(main.frame,text = msg,width = 500,bg = '#9FE4F3',padx = '10px',pady = '5px')
@@ -51,7 +52,7 @@ class Login:
 	        	self.usernameentry1.delete(0,'end')
 	        	self.passwordentry1.delete(0,'end')
 
-#--------------for students who have been admitted -----------------
+#--------------for students who have been admitted -----------------#
 class SignUp:
 	def __init__(self):
 		print
@@ -92,7 +93,7 @@ class SignUp:
 				self.phone_entry.delete(0,'end')
 
 	def signUp(self):
-		if checkFileEmpty() == True:              #checks whether the file is empty or not
+		if checkFileEmpty() == True:              
 			return
 		destroyInterface(main.frame)
 		main.frame.title('Student Portal -Sign Up')
@@ -104,7 +105,7 @@ class SignUp:
 		self.phone_entry.place(x = 420,y = 80)
 		submit = Button(main.frame,text = 'Confirmation',command = self.getConfirmation,bg = '#58F0AB',padx = '10px',pady = '3px').place(x = 240,y = 140)
 		Button(main.frame,text = 'Back',command = main.back,bg = '#58F0AB',padx = '10px',pady = '3px').place(x = 240,y = 190)
-#def studentInterface():
+
 class stuInterface():
 	def __init__(self):
 		self.frame = Tk()
@@ -116,135 +117,18 @@ class stuInterface():
 		Login_obj=Login()
 		SignUp_obj=SignUp()
 
+	def exit(self):
+		self.frame.destroy()
 
 	def back(self):
 		destroyInterface(self.frame)
 		login_btn = Button(self.frame,text = "Login",command = Login_obj.login,activebackground = 'grey',activeforeground = '#AB78F1',bg = '#58F0AB',highlightcolor = 'red',padx = '10px',pady = '3px')
 		signup_btn = Button(self.frame,text = "Sign Up",command = SignUp_obj.signUp,activebackground = 'grey',activeforeground = '#AB78F1',bg = '#58F0AB',highlightcolor = 'red',padx = '10px',pady = '3px')
-		exit_btn = Button(self.frame,text = "Exit",command=lambda:exit(self),activebackground = 'grey',activeforeground = '#AB78F1',bg = '#58F0AB',highlightcolor = 'red',padx = '10px',pady = '3px')
+		exit_btn = Button(self.frame,text = "Exit",command=self.exit,activebackground = 'grey',activeforeground = '#AB78F1',bg = '#58F0AB',highlightcolor = 'red',padx = '10px',pady = '3px')
 		login_btn.place(x = 200,y = 100)
 		signup_btn.place(x = 350,y = 100)
 		exit_btn.place(x=260,y=160)
 
-		"""
-		self.frames  =  {}
-
-		for F in (Login, SignUp,LoginConfirm):
-			frame  =  F(container, self)
-			self.frames[F]  =  frame
-			frame.grid(row = 0, column = 0, sticky = "nsew")
-		self.show_frame(StartPage)
-		"""
-	def show_frame(self, cont):
-		frame  =  self.frames[cont]
-		frame.tkraise()
 main = stuInterface()
 main.back()
 main.frame.mainloop()
-"""
-class stuInterface():
-
-    def __init__(self):
-        
-        #tk.Tk.__init__(self, *args, **kwargs)
-        global container
-        #container  =  tk.Frame(self)						#creating the frame main wala
-        container = Tk()
-
-        container.pack(side = "top", fill = "both", expand  =  False)
-
-        container.grid_rowconfigure(0, weight = 1)
-        container.grid_columnconfigure(0, weight = 1)
-
-        self.frames  =  {}
-
-        for F in (StartPage,Login, SignUp,LoginConfirm):
-
-            frame  =  F(container, self)
-
-            self.frames[F]  =  frame
-
-            frame.grid(row = 0, column = 0, sticky = "nsew")
-
-        self.show_frame(StartPage)
-
-    def show_frame(self, cont):
-    	frame  =  self.frames[cont]
-        frame.tkraise()
-
-class StartPage():
-
-    def __init__(self, parent, controller):
-        tk.Frame.__init__(self,parent)
-
-        button  =  tk.Button(self, text = "Login",
-                            command = lambda: controller.show_frame(Login))
-        button.pack()
-
-        button2  =  tk.Button(self, text = "Sign Up",
-                            command = lambda: controller.show_frame(SignUp))
-        button2.pack()
-
-class Login(tk.Frame):
-
-    def __init__(self, parent, controller):
-        tk.Frame.__init__(self, parent)
-        label  =  tk.Label(self, text = "Username", font = LARGE_FONT)
-        label.pack(pady = 10,padx = 10)
-
-        name_entry = Entry(self)
-        name_entry.pack()
-
-        label  =  tk.Label(self, text = "Password", font = LARGE_FONT)
-        label.pack(pady = 10,padx = 10)
-
-        pwd_entry = Entry(self)
-        pwd_entry.pack()
-
-        button1  =  tk.Button(self, text = "Login",
-                            command = lambda: controller.show_frame(LoginConfirm))
-        button1.pack()
-
-class LoginConfirm(tk.Frame):
-
-    def __init__(self, parent, controller):
-        tk.Frame.__init__(self, parent)
-        label  =  tk.Label(self, text = "Username", font = LARGE_FONT)
-        label.pack(pady = 10,padx = 10)
-
-        name_entry = Entry(self)
-        name_entry.pack()
-
-        label  =  tk.Label(self, text = "Password", font = LARGE_FONT)
-        label.pack(pady = 10,padx = 10)
-
-        pwd_entry = Entry(self)
-        pwd_entry.pack()
-
-        button1  =  tk.Button(self, text = "Login",
-                            command = lambda: controller.show_frame(LoginConfirm))
-        button1.pack()
-
-class SignUp(tk.Frame):
-
-    def __init__(self, parent, controller):
-        tk.Frame.__init__(self, parent)
-        label  =  tk.Label(self, text = "Name", font = LARGE_FONT)
-        label.pack(pady = 10,padx = 10)
-
-        phone_entry = Entry(self)
-        phone_entry.pack()
-
-        label  =  tk.Label(self, text = "Password", font = LARGE_FONT)
-        label.pack(pady = 10,padx = 10)
-
-        name_entry = Entry(self)
-        name_entry.pack()
-
-        button1  =  tk.Button(self, text = "Confirmation",
-                            command = lambda: controller.show_frame(StartPage))
-        button1.pack()
-mainObj = stuInterface()
-"""
-	
-
