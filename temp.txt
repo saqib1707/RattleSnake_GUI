@@ -1,14 +1,5 @@
 [
     {
-        "dilkash ghazala": 65
-    }, 
-    {
-        "sayan akhtar": "100"
-    }, 
-    {
-        "naurin haider": 45
-    }, 
-    {
-        "Kanush Agrawal": 0
+        "Sir Kanush Agrawal": "99"
     }
 ]
