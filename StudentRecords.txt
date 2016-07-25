@@ -1,0 +1,10 @@
+[
+    {
+        "username": "maggusir", 
+        "name": "Sir Kanush Agrawal", 
+        "batch": 1, 
+        "marks": "99", 
+        "password": "agrawal", 
+        "phoneno": "9876"
+    }
+]
